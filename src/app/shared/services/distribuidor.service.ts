@@ -15,14 +15,35 @@ export class DistribuidorService {
   private _distribuidores!: Distribuidor[];
   private _distribuidores$: BehaviorSubject<Distribuidor[]>;
 
-  constructor(private appService: AppService,
+  constructor(
+    private appService: AppService,
     private sessaoService: SessaoService,
-    @Inject(APP_CONFIG) private appConfig: AppConfig) {
+    @Inject(APP_CONFIG) private appConfig: AppConfig
+    ) {
     this._distribuidor$ = new BehaviorSubject<Distribuidor | undefined>(
       undefined
     );
     this._distribuidores$ = new BehaviorSubject<Distribuidor[]>([]);
    }
+
+   set distribuidor(distribuidor: Distribuidor) {
+    this._distribuidor = distribuidor;
+    this._distribuidor$.next(distribuidor);
+  }
+
+   get distribuidor(): Distribuidor {
+    return this._distribuidor;
+  }
+
+  set distribuidores(distribuidores: Distribuidor[]) {
+    this._distribuidores = distribuidores;
+    this._distribuidores$.next(distribuidores);
+  }
+
+  get distribuidores(): Distribuidor[] {
+    return this._distribuidores;
+  }
+
 
    getDistribuidor(): Observable<DistribuidorResponse> {
     return this.appService.handleGetHttpClientByPlataform<DistribuidorResponse>(
@@ -31,14 +52,6 @@ export class DistribuidorService {
     );
   }
 
-  get distribuidor(): Distribuidor {
-    return this._distribuidor;
-  }
-
-  set distribuidores(distribuidores: Distribuidor[]) {
-    this._distribuidores = distribuidores;
-    this._distribuidores$.next(distribuidores);
-  }
 
   loadDistribuidor(): Observable<Distribuidor | undefined> {
     return this._distribuidor$.asObservable();

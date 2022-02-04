@@ -1,3 +1,14 @@
-<router-outlet>
-  <p>Dados do distribuidor</p>
-</router-outlet>
+<div class="uk-container">
+  <div
+    class="uk-grid-small uk-child-width-1-1@s uk-child-width-1-2@m uk-child-width-1-1 uk-text-center"
+    uk-grid
+  >
+    <div *ngFor="let distribuidor of distribuidores">
+      <div class="uk-card uk-card-default uk-card-body">
+        <h4 class="uk-card-title uk-text-bolder uk-text-primary">Dados</h4>
+        <p>Razão Social: {{ distribuidor.razao_social }}</p>
+        <p>Nome Fantasia: {{ distribuidor.nome_fantasia }}</p>
+      </div>
+    </div>
+  </div>
+</div>

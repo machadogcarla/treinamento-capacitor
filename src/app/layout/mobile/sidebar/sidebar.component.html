@@ -1,0 +1,31 @@
+<button
+  class="uk-button uk-button-default uk-margin-small-right"
+  type="button"
+  uk-toggle="target: #offcanvas-usage"
+>
+  <span class="uk-margin-small-right" uk-icon="icon: table"></span>
+</button>
+
+<div id="offcanvas-usage" uk-offcanvas>
+  <div class="uk-offcanvas-bar">
+    <button class="uk-offcanvas-close" type="button" uk-close></button>
+    <div class="uk-card">
+      <ul class="uk-nav-default uk-nav-parent-icon" uk-nav>
+        <li class="uk-active"><a href="#">Js Vendas</a></li>
+        <li class="uk-parent">
+          <a href="#">USUÁRIO</a>
+          <ul class="uk-nav-sub">
+            <li routerLink="/distribuidor">Alterar Senha</li>
+          </ul>
+        </li>
+        <li class="uk-nav-header">DISTRIBUIDOR</li>
+        <li>
+          <a routerLink="/distribuidor"
+            ><span class="uk-margin-small-right" uk-icon="icon: table"></span>
+            Informações</a
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

@@ -1,3 +1,4 @@
+import { SidebarComponent } from './layout/mobile/sidebar/sidebar.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
@@ -18,7 +19,8 @@ import { AppConfigModule } from './app-config.module';
     AppComponent,
     UsuarioComponent,
     DistribuidorComponent,
-    MobileComponent
+    MobileComponent,
+    SidebarComponent,
   ],
   imports: [
     BrowserModule,
@@ -26,12 +28,9 @@ import { AppConfigModule } from './app-config.module';
     SharedModule,
     AppRoutingModule,
     HttpClientModule,
-    AppConfigModule
+    AppConfigModule,
   ],
-  providers: [
-    httpInterceptorProviders,
-    HTTP
-  ],
-  bootstrap: [AppComponent]
+  providers: [httpInterceptorProviders, HTTP],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
